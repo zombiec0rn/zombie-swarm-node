@@ -23,7 +23,7 @@ var ipv4 = function(iface) {
     return pickInterface(interfaces, 'IPv4')
 }
 
-var ipv6 = function() {
+var ipv6 = function(iface) {
     var interfaces = os.networkInterfaces()
     if (iface) interfaces = reduceInterfaces(interfaces, iface)
     return pickInterface(interfaces, 'IPv6')
