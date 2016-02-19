@@ -1,0 +1,18 @@
+{
+  "name": "zombie-swarm-node",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "multicast-dns": "^6.0.0",
+    "network-address": "^1.0.0"
+  },
+  "devDependencies": {
+    "babel-preset-es2015": "^6.5.0"
+  }
+}
