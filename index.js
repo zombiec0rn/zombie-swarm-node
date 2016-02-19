@@ -1,7 +1,9 @@
+import minimist from 'minimist'
 import _mdns    from 'multicast-dns'
 import _address from './network-address'
 
-let address = _address('zt2')
+let args = minimist(process.argv.slice(2))
+let address = _address(args.interface)
 let mdns = _mdns()
 mdns.on('query', q => {
     let swarmQuery = q.questions.reduce((found, question) => {
