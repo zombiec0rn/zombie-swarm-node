@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "multicast-dns": "^6.0.0",
-    "network-address": "^1.0.0",
+    "network-address": "^1.1.0",
     "minimist": "^1.2.0"
   },
   "devDependencies": {

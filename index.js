@@ -1,6 +1,6 @@
 import minimist from 'minimist'
 import _mdns    from 'multicast-dns'
-import _address from './network-address'
+import _address from 'network-address'
 
 let args = minimist(process.argv.slice(2))
 let address = _address(args.interface)
