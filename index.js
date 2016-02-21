@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import minimist from 'minimist'
 import _mdns    from 'multicast-dns'
 import _address from 'network-address'
