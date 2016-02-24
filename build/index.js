@@ -31,7 +31,8 @@ var args = (0, _minimist2.default)(process.argv.slice(2), {
   default: {
     'api-port': 8901,
     tag: [],
-    engine: []
+    engine: [],
+    swarm: 'anklebiters'
   }
 });
 if (typeof args.tag == 'string') args.tag = [args.tag];

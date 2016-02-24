@@ -29,7 +29,8 @@ function requestHandler(args) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
       tags: args.tag,
-      engines: args.engine
+      engines: args.engine,
+      swarm: args.swarm
     }));
   };
 }
