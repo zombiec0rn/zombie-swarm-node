@@ -9,12 +9,12 @@ import http     from './http_api'
 let args = minimist(process.argv.slice(2), {
   default: {
     'api-port': 8901,
-    tag : []
+    tag       : [],
+    engine    : []
   }
 })
 if (typeof args.tag == 'string') args.tag = [args.tag]
-
-// TODO: Validate
+if (typeof args.engine == 'string') args.engine = [args.engine]
 
 let _mdns = mdns(args)
 let _http = http(args)
@@ -26,6 +26,9 @@ console.log(`${rainbow.r("Zombie Swarm Node!")}
   ${chalk.cyan("http-api:")}
     - host: ${chalk.bold(_http.host)}
     - port: ${chalk.bold(args['api-port'])}
+    - meta:
+      - tags: ${args.tag}
+      - engines: ${args.engine}
 `)
 
 _http.server.on('listening', () => {
