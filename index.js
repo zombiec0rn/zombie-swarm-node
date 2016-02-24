@@ -2,6 +2,7 @@
 import minimist from 'minimist'
 import chalk    from 'chalk'
 import rainbow  from 'ansi-rainbow'
+import emoji    from 'random-emoji'
 import mdns     from './mdns'
 import http     from './http_api'
 
@@ -26,5 +27,6 @@ console.log(`${rainbow.r("Zombie Swarm Node!")}
 `)
 
 _http.server.on('listening', () => {
-  console.log('Ready...')
+  let emojiline = emoji.random({ count: 3 }).map(e => e.character).join(' - ')
+  console.log(emojiline)
 })

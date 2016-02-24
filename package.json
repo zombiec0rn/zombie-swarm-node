@@ -16,7 +16,9 @@
     "network-address": "^1.1.0",
     "minimist": "^1.2.0",
     "chalk": "^1.1.1",
-    "ansi-rainbow": "^1.0.0"
+    "ansi-rainbow": "^1.0.0",
+    "node-emoji": "^1.0.4",
+    "random-emoji": "^1.0.0"
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.5.0"
