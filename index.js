@@ -8,9 +8,11 @@ import http     from './http_api'
 
 let args = minimist(process.argv.slice(2), {
   default: {
-    'api-port': 8901
+    'api-port': 8901,
+    tag : []
   }
 })
+if (typeof args.tag == 'string') args.tag = [args.tag]
 
 // TODO: Validate
 
