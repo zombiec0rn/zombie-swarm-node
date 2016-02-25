@@ -3,7 +3,9 @@
   "version": "1.2.1",
   "description": "",
   "main": "index.js",
-  "bin": "build/index.js",
+  "bin": {
+    "zombie-swarm-node": "build/index.js"
+  },
   "scripts": {
     "start": "babel-node --presets es2015 index.js --swarm lurkers --interface zt1 --tag gateway --tag yolo --engine docker::tcp://127.0.0.1.4243",
     "build": "babel --presets es2015 *.js --out-dir build",
