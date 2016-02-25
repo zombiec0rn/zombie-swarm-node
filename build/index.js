@@ -17,6 +17,10 @@ var _randomEmoji = require('random-emoji');
 
 var _randomEmoji2 = _interopRequireDefault(_randomEmoji);
 
+var _networkAddress = require('network-address');
+
+var _networkAddress2 = _interopRequireDefault(_networkAddress);
+
 var _mdns2 = require('./mdns');
 
 var _mdns3 = _interopRequireDefault(_mdns2);
@@ -37,11 +41,20 @@ var args = (0, _minimist2.default)(process.argv.slice(2), {
 });
 if (typeof args.tag == 'string') args.tag = [args.tag];
 if (typeof args.engine == 'string') args.engine = [args.engine];
+args.address = (0, _networkAddress2.default)(args.interface);
 
 var _mdns = (0, _mdns3.default)(args);
 var _http = (0, _http_api2.default)(args);
+var engines = args.engine.map(function (e) {
+  if (e.indexOf('docker') >= 0) {
+    var port = e.split(':');
+    port = port.length > 1 ? port[1] : '4243';
+    return 'docker::tcp://' + args.address + ':' + port;
+  }
+  return e;
+});
 
-console.log(_ansiRainbow2.default.r("Zombie Swarm Node!") + '\n\n  ' + _chalk2.default.green("mdns-discovery:") + '\n    - address: ' + _chalk2.default.bold(_mdns.address) + '\n  ' + _chalk2.default.cyan("http-api:") + '\n    - host: ' + _chalk2.default.bold(_http.host) + '\n    - port: ' + _chalk2.default.bold(args['api-port']) + '\n    - meta:\n      - tags: ' + args.tag + '\n      - engines: ' + args.engine + '\n');
+console.log(_ansiRainbow2.default.r("Zombie Swarm Node!") + '\n\n  ' + _chalk2.default.green("mdns-discovery:") + '\n    - address: ' + _chalk2.default.bold(_mdns.address) + '\n  ' + _chalk2.default.cyan("http-api:") + '\n    - host: ' + _chalk2.default.bold(_http.host) + '\n    - port: ' + _chalk2.default.bold(args['api-port']) + '\n    - meta:\n      - tags: ' + args.tag + '\n      - engines: ' + engines + '\n');
 
 _http.server.on('listening', function () {
   var emojiline = _randomEmoji2.default.random({ count: 3 }).map(function (e) {
