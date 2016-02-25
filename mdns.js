@@ -1,7 +1,10 @@
 import _mdns    from 'multicast-dns'
 
 export default function(args) {
-  let mdns = _mdns()
+  let mdns = _mdns({
+    multicast: true,
+    interface: args.address
+  })
   mdns.on('query', q => {
     let swarmQuery = q.questions.reduce((found, question) => {
       if (question.name == 'zombie-swarm') found = question
