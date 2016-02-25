@@ -1,5 +1,4 @@
-import http    from 'http'
-import address from 'network-address'
+import http from 'http'
 
 function requestHandler(args) {
   return function(req, res) {
@@ -14,10 +13,9 @@ function requestHandler(args) {
 
 export default function(args) {
   let server = http.createServer(requestHandler(args))
-  let host   = args['api-host'] || address(args.interface)
-  server.listen(args['api-port'], host) 
+  server.listen(args['api-port'], args.address) 
   return {
     server : server,
-    host   : host
+    host   : args.address
   }
 }

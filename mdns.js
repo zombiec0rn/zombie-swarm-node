@@ -1,8 +1,6 @@
 import _mdns    from 'multicast-dns'
-import _address from 'network-address'
 
 export default function(args) {
-  let address = _address(args.interface)
   let mdns = _mdns()
   mdns.on('query', q => {
     let swarmQuery = q.questions.reduce((found, question) => {
@@ -15,11 +13,11 @@ export default function(args) {
         name : 'zombie-swarm',
         type : 'A',
         ttl  : 120,
-        data : address 
+        data : args.address 
       }
     ])
   })
   return {
-    address : address
+    address : args.address
   }
 }
