@@ -15,7 +15,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "multicast-dns": "git+ssh://git@github.com:mafintosh/multicast-dns.git#d87efa1bbc03dec598a8058240204a11c1fd7508",
+    "multicast-dns": "git+https://mafintosh@github.com/mafintosh/multicast-dns.git#d87efa1bbc03dec598a8058240204a11c1fd7508",
     "network-address": "^1.1.0",
     "minimist": "^1.2.0",
     "chalk": "^1.1.1",
