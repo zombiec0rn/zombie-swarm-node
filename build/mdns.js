@@ -5,10 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 
 exports.default = function (args) {
-  var mdns = (0, _multicastDns2.default)({
-    multicast: true,
-    interface: args.address
-  });
+  var mdns = (0, _multicastDns2.default)();
   mdns.on('query', function (q) {
     if (args['debug-mdns']) console.log('MDNS QUERY', q);
     var swarmQuery = q.questions.reduce(function (found, question) {

@@ -1,10 +1,7 @@
 import _mdns    from 'multicast-dns'
 
 export default function(args) {
-  let mdns = _mdns({
-    multicast: true,
-    interface: args.address
-  })
+  let mdns = _mdns()
   mdns.on('query', q => {
     if (args['debug-mdns']) console.log('MDNS QUERY', q)
     let swarmQuery = q.questions.reduce((found, question) => {
