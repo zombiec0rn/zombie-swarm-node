@@ -7,7 +7,7 @@
     "zombie-swarm-node": "build/index.js"
   },
   "scripts": {
-    "start": "babel-node --presets es2015 index.js --swarm lurkers --interface zt1 --tag gateway --tag yolo --engine docker:4243",
+    "start": "babel-node --presets es2015 index.js --swarm lurkers --interface zt1 --tag gateway --tag yolo --debug-mdns --engine docker:4243",
     "build": "babel --presets es2015 *.js --out-dir build",
     "prepublish": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"

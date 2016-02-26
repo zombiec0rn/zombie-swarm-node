@@ -6,6 +6,7 @@ export default function(args) {
     interface: args.address
   })
   mdns.on('query', q => {
+    if (args['debug-mdns']) console.log('MDNS QUERY', q)
     let swarmQuery = q.questions.reduce((found, question) => {
       if (question.name == 'zombie-swarm') found = question
       return found
