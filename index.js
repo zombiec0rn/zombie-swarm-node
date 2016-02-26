@@ -17,7 +17,7 @@ let args = minimist(process.argv.slice(2), {
 })
 if (typeof args.tag == 'string') args.tag = [args.tag]
 if (typeof args.engine == 'string') args.engine = [args.engine]
-args.address = address(args.interface)
+args.address = args.address || address(args.interface)
 
 let _mdns = mdns(args)
 let _http = http(args)
