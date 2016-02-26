@@ -41,7 +41,7 @@ var args = (0, _minimist2.default)(process.argv.slice(2), {
 });
 if (typeof args.tag == 'string') args.tag = [args.tag];
 if (typeof args.engine == 'string') args.engine = [args.engine];
-args.address = (0, _networkAddress2.default)(args.interface);
+args.address = args.address || (0, _networkAddress2.default)(args.interface);
 
 var _mdns = (0, _mdns3.default)(args);
 var _http = (0, _http_api2.default)(args);

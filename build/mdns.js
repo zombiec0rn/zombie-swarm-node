@@ -10,6 +10,7 @@ exports.default = function (args) {
     interface: args.address
   });
   mdns.on('query', function (q) {
+    if (args['debug-mdns']) console.log('MDNS QUERY', q);
     var swarmQuery = q.questions.reduce(function (found, question) {
       if (question.name == 'zombie-swarm') found = question;
       return found;
