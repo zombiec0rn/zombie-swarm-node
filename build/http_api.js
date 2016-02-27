@@ -13,6 +13,10 @@ exports.default = function (args) {
   };
 };
 
+var _os = require('os');
+
+var _os2 = _interopRequireDefault(_os);
+
 var _http = require('http');
 
 var _http2 = _interopRequireDefault(_http);
@@ -26,7 +30,9 @@ function requestHandler(args) {
       tags: args.tag,
       engines: args.engine,
       swarm: args.swarm,
-      hostname: args.hostname
+      hostname: args.hostname,
+      memory: _os2.default.totalmem(),
+      cpus: _os2.default.cpus()
     }));
   };
 }
