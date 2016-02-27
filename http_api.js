@@ -1,3 +1,4 @@
+import os from 'os'
 import http from 'http'
 
 function requestHandler(args) {
@@ -7,7 +8,9 @@ function requestHandler(args) {
       tags: args.tag,
       engines: args.engine,
       swarm: args.swarm,
-      hostname: args.hostname
+      hostname: args.hostname,
+      memory: os.totalmem(),
+      cpus: os.cpus()
     }));
   }
 }
