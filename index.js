@@ -4,6 +4,7 @@ import chalk    from 'chalk'
 import rainbow  from 'ansi-rainbow'
 import emoji    from 'random-emoji'
 import address  from 'network-address'
+import os       from 'os'
 import mdns     from './mdns'
 import http     from './http_api'
 
@@ -12,7 +13,8 @@ let args = minimist(process.argv.slice(2), {
     'api-port': 8901,
     tag       : [],
     engine    : [],
-    swarm     : 'anklebiters'
+    swarm     : 'anklebiters',
+    hostname  : os.hostname()
   }
 })
 if (typeof args.tag == 'string') args.tag = [args.tag]
@@ -34,6 +36,7 @@ console.log(`${rainbow.r("Zombie Swarm Node!")}
 
   ${chalk.green("mdns-discovery:")}
     - address: ${chalk.bold(_mdns.address)}
+    - name: ${chalk.bold(args.hostname)}.${chalk.bold(args.swarm)}
   ${chalk.cyan("http-api:")}
     - host: ${chalk.bold(_http.host)}
     - port: ${chalk.bold(args['api-port'])}

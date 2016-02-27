@@ -6,7 +6,8 @@ function requestHandler(args) {
     res.end(JSON.stringify({
       tags: args.tag,
       engines: args.engine,
-      swarm: args.swarm
+      swarm: args.swarm,
+      hostname: args.hostname
     }));
   }
 }

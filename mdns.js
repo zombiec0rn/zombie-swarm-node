@@ -13,7 +13,7 @@ export default function(args) {
     if (!swarmQuery) return
     mdns.respond([
       {
-        name : 'zombie-swarm',
+        name : `${args.hostname}.${args.swarm}.zombie-swarm`,
         type : 'A',
         ttl  : 120,
         data : args.address 
