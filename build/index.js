@@ -21,6 +21,10 @@ var _networkAddress = require('network-address');
 
 var _networkAddress2 = _interopRequireDefault(_networkAddress);
 
+var _os = require('os');
+
+var _os2 = _interopRequireDefault(_os);
+
 var _mdns2 = require('./mdns');
 
 var _mdns3 = _interopRequireDefault(_mdns2);
@@ -36,7 +40,8 @@ var args = (0, _minimist2.default)(process.argv.slice(2), {
     'api-port': 8901,
     tag: [],
     engine: [],
-    swarm: 'anklebiters'
+    swarm: 'anklebiters',
+    hostname: _os2.default.hostname()
   }
 });
 if (typeof args.tag == 'string') args.tag = [args.tag];
@@ -54,7 +59,7 @@ var engines = args.engine.map(function (e) {
   return e;
 });
 
-console.log(_ansiRainbow2.default.r("Zombie Swarm Node!") + '\n\n  ' + _chalk2.default.green("mdns-discovery:") + '\n    - address: ' + _chalk2.default.bold(_mdns.address) + '\n  ' + _chalk2.default.cyan("http-api:") + '\n    - host: ' + _chalk2.default.bold(_http.host) + '\n    - port: ' + _chalk2.default.bold(args['api-port']) + '\n    - meta:\n      - tags: ' + args.tag + '\n      - engines: ' + engines + '\n');
+console.log(_ansiRainbow2.default.r("Zombie Swarm Node!") + '\n\n  ' + _chalk2.default.green("mdns-discovery:") + '\n    - address: ' + _chalk2.default.bold(_mdns.address) + '\n    - name: ' + _chalk2.default.bold(args.hostname) + '.' + _chalk2.default.bold(args.swarm) + '\n  ' + _chalk2.default.cyan("http-api:") + '\n    - host: ' + _chalk2.default.bold(_http.host) + '\n    - port: ' + _chalk2.default.bold(args['api-port']) + '\n    - meta:\n      - tags: ' + args.tag + '\n      - engines: ' + engines + '\n');
 
 _http.server.on('listening', function () {
   var emojiline = _randomEmoji2.default.random({ count: 3 }).map(function (e) {
