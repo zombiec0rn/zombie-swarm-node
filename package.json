@@ -1,6 +1,6 @@
 {
   "name": "@asbjornenge/zombie-swarm-node",
-  "version": "1.7.0",
+  "version": "1.8.0",
   "description": "",
   "main": "index.js",
   "bin": {
