@@ -2,7 +2,6 @@
 import minimist from 'minimist'
 import chalk    from 'chalk'
 import rainbow  from 'ansi-rainbow'
-import emoji    from 'random-emoji'
 import address  from 'network-address'
 import os       from 'os'
 import mdns     from './mdns'
