@@ -7,6 +7,7 @@ import address  from 'network-address'
 import os       from 'os'
 import mdns     from './mdns'
 import http     from './api'
+import pkg      from './package.json'
 
 let args = minimist(process.argv.slice(2), {
   default: {
@@ -17,6 +18,26 @@ let args = minimist(process.argv.slice(2), {
     hostname  : os.hostname()
   }
 })
+if (args.v || args.version) {
+  console.log(pkg.version)
+  process.exit(0)
+}
+if (args.h || args.help) {
+  console.log(`zombie-swarm-node [OPTIONS]
+
+OPTIONS
+
+interface   - The network interface to broadcast and bind to
+tag         - Add node tags
+engine      - Add a node engine 
+swarm       - Set the node swarm  (default anklebiters)
+hostname    - Node hostname       (default os.hostname())
+api-port    - The http api port   (default 8901)
+version     - Display version
+help        - Display help
+`)
+  process.exit(0)
+}
 if (typeof args.tag == 'string') args.tag = [args.tag]
 if (typeof args.engine == 'string') args.engine = [args.engine]
 args.address = args.address || address(args.interface)
@@ -32,7 +53,15 @@ let engines = args.engine.map(e => {
   return e
 })
 
-console.log(`${rainbow.r("Zombie Swarm Node!")}
+console.log(`${rainbow.r('Zombie Swarm Node!')} 
+
+             ${chalk.red('/')}
+         ,._/
+        (((${chalk.green('@')}\\
+   _,---) )r'
+  (//// \\\\\\
+  ) \\\\\\  |\\\\
+    '''  '''
 
   ${chalk.green("mdns-discovery:")}
     - address: ${chalk.bold(_mdns.address)}
@@ -46,6 +75,5 @@ console.log(`${rainbow.r("Zombie Swarm Node!")}
 `)
 
 _http.server.on('listening', () => {
-  let emojiline = emoji.random({ count: 3 }).map(e => e.character).join(' - ')
-  console.log(emojiline)
+  console.log(`API @ http://${_http.host}:${args['api-port']}`)
 })

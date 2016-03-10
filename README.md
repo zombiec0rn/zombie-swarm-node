@@ -34,6 +34,8 @@ engine      - Add a node engine
 swarm       - Set the node swarm  (default anklebiters)
 hostname    - Node hostname       (default os.hostname())
 api-port    - The http api port   (default 8901)
+version     - Display version 
+help        - Display help 
 ```
 
 ## Http API
