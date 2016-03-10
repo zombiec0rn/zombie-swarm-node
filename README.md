@@ -64,6 +64,10 @@ The http api offers additional information about the node. It binds to the passe
 
 ## Changelog
 
+### 4.0.1
+
+* Added missing keywords to `package.json`
+
 ### 4.0.0
 
 * Major bump(s) to avoid tag conflict mostly - sry - :see_no_evil:
