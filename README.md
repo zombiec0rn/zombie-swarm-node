@@ -64,9 +64,9 @@ The http api offers additional information about the node. It binds to the passe
 
 ## Changelog
 
-### 2.0.0
+### 4.0.0
 
-* Major bump to avoid tag conflict mostly
+* Major bump(s) to avoid tag conflict mostly - sry - :see_no_evil:
 * Supporting `help` and `version` cli options
 * Printing ascii zombiecorn :heart: :rainbow:
 
