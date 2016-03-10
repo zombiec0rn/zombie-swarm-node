@@ -62,6 +62,10 @@ The http api offers additional information about the node. It binds to the passe
 
 ## Changelog
 
+### 1.0.1
+
+* Added more meta to `package.json`
+
 ### 1.0.0
 
 * Initial release :tada:

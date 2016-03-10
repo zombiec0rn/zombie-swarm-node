@@ -1,7 +1,7 @@
 {
   "name": "@zombiec0rn/zombie-swarm-node",
   "version": "1.0.0",
-  "description": "",
+  "description": "Zombie Swarm Node",
   "main": "index.js",
   "bin": {
     "zombie-swarm-node": "build/index.js"
@@ -25,5 +25,13 @@
   },
   "devDependencies": {
     "babel-preset-es2015": "^6.5.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zombiec0rn/zombie-swarm-node.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zombiec0rn/zombie-swarm-node/issues"
+  },
+  "homepage": "https://github.com/zombiec0rn/zombie-swarm-node#readme"
 }
