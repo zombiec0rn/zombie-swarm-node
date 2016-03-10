@@ -29,9 +29,9 @@ var _mdns2 = require('./mdns');
 
 var _mdns3 = _interopRequireDefault(_mdns2);
 
-var _http_api = require('./http_api');
+var _api = require('./api');
 
-var _http_api2 = _interopRequireDefault(_http_api);
+var _api2 = _interopRequireDefault(_api);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -49,7 +49,7 @@ if (typeof args.engine == 'string') args.engine = [args.engine];
 args.address = args.address || (0, _networkAddress2.default)(args.interface);
 
 var _mdns = (0, _mdns3.default)(args);
-var _http = (0, _http_api2.default)(args);
+var _http = (0, _api2.default)(args);
 var engines = args.engine.map(function (e) {
   if (e.indexOf('docker') >= 0) {
     var port = e.split(':');

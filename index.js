@@ -6,7 +6,7 @@ import emoji    from 'random-emoji'
 import address  from 'network-address'
 import os       from 'os'
 import mdns     from './mdns'
-import http     from './http_api'
+import http     from './api'
 
 let args = minimist(process.argv.slice(2), {
   default: {
