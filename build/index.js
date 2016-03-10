@@ -13,10 +13,6 @@ var _ansiRainbow = require('ansi-rainbow');
 
 var _ansiRainbow2 = _interopRequireDefault(_ansiRainbow);
 
-var _randomEmoji = require('random-emoji');
-
-var _randomEmoji2 = _interopRequireDefault(_randomEmoji);
-
 var _networkAddress = require('network-address');
 
 var _networkAddress2 = _interopRequireDefault(_networkAddress);
