@@ -28,6 +28,11 @@
   "devDependencies": {
     "babel-preset-es2015": "^6.5.0"
   },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/zombiec0rn/zombie-swarm-node.git"
