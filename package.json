@@ -15,11 +15,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "multicast-dns": "^6.0.0",
-    "network-address": "^1.1.0",
-    "minimist": "^1.2.0",
+    "ansi-rainbow": "^1.0.0",
     "chalk": "^1.1.1",
-    "ansi-rainbow": "^1.0.0"
+    "docker-inspector": "^1.1.0",
+    "minimist": "^1.2.0",
+    "multicast-dns": "^6.0.0",
+    "network-address": "^1.1.0"
   },
   "keywords": [
     "zombie-swarm",

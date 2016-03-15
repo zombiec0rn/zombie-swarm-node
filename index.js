@@ -6,6 +6,7 @@ import address  from 'network-address'
 import os       from 'os'
 import mdns     from './mdns'
 import http     from './api'
+import sq       from './serviceQuery'
 import pkg      from './package.json'
 
 let args = minimist(process.argv.slice(2), {
@@ -40,9 +41,6 @@ help        - Display help
 if (typeof args.tag == 'string') args.tag = [args.tag]
 if (typeof args.engine == 'string') args.engine = [args.engine]
 args.address = args.address || address(args.interface)
-
-let _mdns = mdns(args)
-let _http = http(args)
 let engines = args.engine.map(e => {
   if (e.indexOf('docker') >= 0) {
     let port = e.split(':')
@@ -51,6 +49,11 @@ let engines = args.engine.map(e => {
   }
   return e
 })
+
+let _mdns = mdns(args)
+let _sq   = sq(args, engines)
+let _http = http(args, _sq)
+_sq.start()
 
 console.log(`${rainbow.r('Zombie Swarm Node!')} 
 
