@@ -29,6 +29,10 @@ var _api = require('./api');
 
 var _api2 = _interopRequireDefault(_api);
 
+var _serviceQuery = require('./serviceQuery');
+
+var _serviceQuery2 = _interopRequireDefault(_serviceQuery);
+
 var _package = require('./package.json');
 
 var _package2 = _interopRequireDefault(_package);
@@ -55,9 +59,6 @@ if (args.h || args.help) {
 if (typeof args.tag == 'string') args.tag = [args.tag];
 if (typeof args.engine == 'string') args.engine = [args.engine];
 args.address = args.address || (0, _networkAddress2.default)(args.interface);
-
-var _mdns = (0, _mdns3.default)(args);
-var _http = (0, _api2.default)(args);
 var engines = args.engine.map(function (e) {
   if (e.indexOf('docker') >= 0) {
     var port = e.split(':');
@@ -66,6 +67,11 @@ var engines = args.engine.map(function (e) {
   }
   return e;
 });
+
+var _mdns = (0, _mdns3.default)(args);
+var _sq = (0, _serviceQuery2.default)(args, engines);
+var _http = (0, _api2.default)(args, _sq);
+_sq.start();
 
 console.log(_ansiRainbow2.default.r('Zombie Swarm Node!') + ' \n\n             ' + _chalk2.default.red('/') + '\n         ,._/\n        (((' + _chalk2.default.green('@') + '\\\n   _,---) )r\'\n  (//// \\\\\\\n  ) \\\\\\  |\\\\\n    \'\'\'  \'\'\'\n\n  ' + _chalk2.default.green("mdns-discovery:") + '\n    - address: ' + _chalk2.default.bold(_mdns.address) + '\n    - name: ' + _chalk2.default.bold(args.hostname) + '.' + _chalk2.default.bold(args.swarm) + '\n  ' + _chalk2.default.cyan("http-api:") + '\n    - host: ' + _chalk2.default.bold(_http.host) + '\n    - port: ' + _chalk2.default.bold(args['api-port']) + '\n    - meta:\n      - tags: ' + args.tag + '\n      - engines: ' + engines + '\n');
 

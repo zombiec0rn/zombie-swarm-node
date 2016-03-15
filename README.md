@@ -64,6 +64,10 @@ The http api offers additional information about the node. It binds to the passe
 
 ## Changelog
 
+### 4.1.0
+
+* Added `serviceQuery` for docker engines and `services` to api dump
+
 ### 4.0.1
 
 * Added missing keywords to `package.json`

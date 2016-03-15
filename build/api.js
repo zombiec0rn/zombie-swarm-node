@@ -4,8 +4,8 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-exports.default = function (args) {
-  var server = _http2.default.createServer(requestHandler(args));
+exports.default = function (args, sq) {
+  var server = _http2.default.createServer(requestHandler(args, sq));
   server.listen(args['api-port'], args.address);
   return {
     server: server,
@@ -23,7 +23,7 @@ var _http2 = _interopRequireDefault(_http);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function requestHandler(args) {
+function requestHandler(args, sq) {
   return function (req, res) {
     res.writeHead(200, { 'Content-Type': 'application/json' });
     res.end(JSON.stringify({
@@ -32,7 +32,8 @@ function requestHandler(args) {
       swarm: args.swarm,
       hostname: args.hostname,
       memory: _os2.default.totalmem(),
-      cpus: _os2.default.cpus()
+      cpus: _os2.default.cpus(),
+      services: sq.services
     }));
   };
 }
