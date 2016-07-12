@@ -64,6 +64,10 @@ The http api offers additional information about the node. It binds to the passe
 
 ## Changelog
 
+### 4.2.1
+
+* Locked down version of all dependencies.
+
 ### 4.2.0
 
 * Bumped the `docker-inspector` module to next major (less deps)
